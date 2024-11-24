@@ -1,0 +1,64 @@
+package LoginPageTestCase;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class LoginPage {
+	
+		WebDriver driver = null;
+		final String offlineSite = "C:\\Users\\GANESH\\Eclipse_Workspace_Selenium\\OfflineWebTesting.xlsx";
+		Sheet sheet; 
+		@BeforeMethod
+		void codeBeforAllTestCases() throws Exception {
+		driver.get(offlineSite);
+		System.out.println("offline url opened");
+	Sheet getWorkbookSheet() {
+		try {
+			 File f1 = new File("C:\\Users\\GANESH\\Eclipse_Workspace_Selenium\\Lecture19\\Testing_Jbk_Offline_Web.xlsx");
+				InputStream stream = new FileInputStream(f1);
+		        // workbook
+				XSSFWorkbook book = new XSSFWorkbook(stream);
+				sheet = book.getSheet("sheetLoginPage");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return sheet;
+	}
+        File f1 = new File("C:\\Users\\GANESH\\Eclipse_Workspace_Selenium\\Lecture19\\Testing_Jbk_Offline_Web.xlsx");
+		InputStream stream = new FileInputStream(f1);
+        // workbook
+		XSSFWorkbook book = new XSSFWorkbook(stream);
+
+	}
+
+	public void CheckingTitle() throws Exception {
+		Sheet sheet1 = book.getSheet("sheetLoginPage"); // 1st sheet
+		// cell --- row a and col
+		Row row1 = sheet1.getRow(3); // row -3
+		Cell cellData = row1.getCell(3); // col -4
+
+		String expUrl = cellData.toString();
+		System.out.println("actUrl--" + actUrl);
+		System.out.println("expUrl--" + expUrl);
+	}
+
+	public void CheckingUrl() throws Exception {
+
+	}
+
+	public void CheckingEmail() throws Exception {
+
+	}
+}

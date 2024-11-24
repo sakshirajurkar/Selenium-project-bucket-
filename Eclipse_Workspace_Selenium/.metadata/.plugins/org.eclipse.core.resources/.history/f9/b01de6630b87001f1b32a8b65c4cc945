@@ -1,0 +1,26 @@
+package JBK_10_Oct_2024;
+//#Tester
+public class TestReport {
+	public static void main(String[] args) {
+		ArithmaticOp ari = new ArithmaticOp();
+		int expSumRes = 15;
+		int actSumRes = ari.sum(10, 5);
+		
+		if(actSumRes == expSumRes) {
+			System.out.println(" sum passed");
+		}
+		else {
+			System.out.println("sum failed");
+		}
+		
+		int expSubRes =3;
+		int actSubRes = ari.sum(7, 4);
+		
+		if(actSubRes == expSubRes) {
+			System.out.println(" sub passed");
+		}
+		else {
+			System.out.println("sub failed");
+		}
+	}
+}

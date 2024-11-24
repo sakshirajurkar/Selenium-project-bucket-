@@ -1,0 +1,6 @@
+package JBK_23_Sept_2024;
+import 
+public class Locators1 {
+    WebDriver driver = new ChromeDriver();
+    driver.
+}

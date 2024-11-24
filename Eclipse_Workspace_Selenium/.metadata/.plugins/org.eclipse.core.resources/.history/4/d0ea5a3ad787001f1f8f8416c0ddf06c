@@ -1,0 +1,71 @@
+package LoginPageTestCase;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class LoginPage {
+
+    WebDriver driver = null;
+    final String offlineSite = "C:\\Users\\GANESH\\Eclipse_Workspace_Selenium\\OfflineWebTesting.xlsx";
+    XSSFWorkbook book;
+    Sheet sheet;
+
+    @BeforeMethod
+    void codeBeforeAllTestCases() throws Exception {
+        // Initialize the ChromeDriver and set the driver path
+        driver = new ChromeDriver();
+        driver.get("http://yourTestSiteURL"); // Replace with actual site URL
+        System.out.println("URL opened");
+
+        // Load the Excel file
+        getWorkbookSheet();
+    }
+
+    Sheet getWorkbookSheet() {
+        try {
+            File f1 = new File("C:\\Users\\GANESH\\Eclipse_Workspace_Selenium\\Lecture19\\Testing_Jbk_Offline_Web.xlsx");
+            InputStream stream = new FileInputStream(f1);
+            // workbook
+            book = new XSSFWorkbook(stream);
+            sheet = book.getSheet("sheetLoginPage");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sheet;
+    }
+
+    @Test
+    public void CheckingTitle() throws Exception {
+        // Make sure book is initialized in getWorkbookSheet()
+        Sheet sheet1 = book.getSheet("sheetLoginPage");
+        String actUrl = driver.getCurrentUrl();
+        
+        // Get the expected URL from the Excel sheet
+        Row row1 = sheet1.getRow(3); // row -3
+        Cell cellData = row1.getCell(3); // col -4
+        String expUrl = cellData.toString();
+
+        System.out.println("actUrl--" + actUrl);
+        System.out.println("expUrl--" + expUrl);
+        
+        // Close resources
+        book.close();
+    }
+
+    public void CheckingUrl() throws Exception {
+        // Implementation for CheckingUrl test case
+    }
+
+    public void CheckingEmail() throws Exception {
+        // Implementation for CheckingEmail test case
+    }
+}

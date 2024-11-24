@@ -1,0 +1,9 @@
+package JBK_10_Oct_2024;
+
+public class MainTestClassArithmaticTestCase {
+  public static void main(String[] args) {
+	  TestArithmaticOp testing = new TestArithmaticOp();
+	  testing.tcSub();
+	  testing.tcSum();
+}
+}

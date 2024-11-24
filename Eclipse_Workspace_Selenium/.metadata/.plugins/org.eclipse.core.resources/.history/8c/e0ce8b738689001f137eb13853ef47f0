@@ -1,0 +1,25 @@
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+// Test Case: Checking Email Textbox
+public void CheckingEmail() throws Exception {
+    codeBeforeAllTestCases();
+
+    // Wait until the email textbox is visible
+    WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds wait
+    WebElement emailTextbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+
+    emailTextbox.click(); // Click on the email textbox
+    String validEmail = "kiran@gmail.com";
+    emailTextbox.sendKeys(validEmail); // Enter a valid email
+
+    // Validate that the email was entered correctly
+    String enteredEmail = emailTextbox.getAttribute("value");
+    System.out.println("Entered Email: " + enteredEmail);
+
+    if (enteredEmail.equals(validEmail)) {
+        System.out.println("tc03 - Email textbox test case passed");
+    } else {
+        System.out.println("tc03 - Email textbox test case failed");
+    }
+}

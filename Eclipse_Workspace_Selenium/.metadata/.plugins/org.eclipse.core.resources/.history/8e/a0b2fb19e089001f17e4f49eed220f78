@@ -1,0 +1,8 @@
+package OfflineWeb;
+
+public class DashboardPageTrigger {
+	public static void main(String[] args) {
+		DashboardPageTestCase dashboard = new DashboardPageTestCase();
+		dashboard.CheckingDashboardUrl();
+	}
+}

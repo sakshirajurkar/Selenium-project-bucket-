@@ -1,0 +1,29 @@
+package jbK_15_Oct_2024;
+
+public class Grouping {
+ public static void main(String[] args) {
+	@Test
+	void display() {
+		<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.15.0</version>
+		</dependency>
+		<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>7.4.0</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>1.6.1</version>
+				<scope>test</scope>
+			</dependency>
+
+	}
+}
+}

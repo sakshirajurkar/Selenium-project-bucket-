@@ -1,0 +1,8 @@
+package JBK_23_Sept_2024;
+
+public class Snippet {
+	public static void main(String[] args) {
+		/html/body/div/div[1]/a/b
+	}
+}
+
